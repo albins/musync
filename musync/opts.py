@@ -281,11 +281,13 @@ class AppSession:
             if not self.overlay_settings(cp, config):
                 self.printer.error("could not overlay section:", section);
                 return;
-        
-        if not os.path.isdir(self.lambdaenv.root):
-            self.printer.error("         root:", "Root library directory non existant, cannot continue.");
-            self.printer.error("current value:", self.lambdaenv.root);
-            return;
+        try:
+            if not os.path.isdir(self.lambdaenv.root):
+                self.printer.error("         root:", "Root library directory non existant, cannot continue.");
+                self.printer.error("current value:", self.lambdaenv.root);
+                return;
+        except TypeError:
+            self.printer.error("Problem finding root directory, is it specified?");
         
         # check that a specific set of lambda functions exist
         for key in ["add", "rm", "hash", "targetpath", "checkhash", "root"]:
