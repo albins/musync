@@ -206,7 +206,7 @@ class AppSession:
         except getopt.GetoptError, e:
             self.printer.error("unknown option:", e.opt);
             import musync.hints as hints
-            hints.print_hint(Usage());
+            print Usage();
             return None, None, None;
 
     def __init__(self, argv, stream):
