@@ -205,6 +205,8 @@ class AppSession:
             return cp, opts, argv;
         except getopt.GetoptError, e:
             self.printer.error("unknown option:", e.opt);
+            import musync.hints as hints
+            hints.print_hint(Usage());
             return None, None, None;
 
     def __init__(self, argv, stream):
@@ -305,7 +307,7 @@ class AppSession:
 #cfgfile="d:\\dump\\programs\\musync_x86\\musync.conf"
 cfgfiles=[["/", "etc", "musync.conf"], ["~", ".musync"]];
 version = (0,5,0,"_r0");
-version_str = "Musync, music syncronizer %d.%d.%d%s";
+version_str = "Musync, music syncronizer (Albin's hacked version) %d.%d.%d%s";
 REPORT_ADDRESS="http://sourceforge.net/projects/musync or johnjohn.tedro@gmail.com";
 
 def Usage ():
