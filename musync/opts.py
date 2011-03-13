@@ -77,7 +77,6 @@ LambdaTemplate = {
     "modify": dict(),
     "debug": True,
     "configurations": [],
-    "transcode": None,
 };
 
 class AppSession:
@@ -306,8 +305,8 @@ class AppSession:
 ### This is changed with setup.py to suite environment ###
 #cfgfile="d:\\dump\\programs\\musync_x86\\musync.conf"
 cfgfiles=[["/", "etc", "musync.conf"], ["~", ".musync"]];
-version = (0,5,0,"_r0");
-version_str = "Musync, music syncronizer (Albin's hacked version) %d.%d.%d%s";
+version = (0,5,0,"_r1");
+version_str = "Musync, music syncronizer %d.%d.%d%s";
 REPORT_ADDRESS="http://sourceforge.net/projects/musync or johnjohn.tedro@gmail.com";
 
 def Usage ():
@@ -367,10 +366,6 @@ def Usage ():
                     album - album name
                     title - track title
                     track - track number
-            -T <from ext>=<to ext>
-                Transcode from one extension to another, tries to find
-                configuration variable *from*-to-*to*.
-                Example: -T flac>ogg (with key flac-to-ogg).
             --debug (-d):
                 Will enable printing of  traceback on
                 FatalExceptions [exc].
